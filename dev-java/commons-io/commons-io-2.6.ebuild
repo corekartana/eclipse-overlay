@@ -17,8 +17,8 @@ SLOT="1"
 KEYWORDS="~amd64 ~x86"
 IUSE="test"
 
-RDEPEND=">=virtual/jre-1.6"
-DEPEND=">=virtual/jdk-1.6
+RDEPEND=">=virtual/jre-1.7"
+DEPEND=">=virtual/jdk-1.7
 	test? (
 		dev-java/ant-junit:0
 		dev-java/junit:4
@@ -29,10 +29,10 @@ S=${WORKDIR}/${MY_P}
 EANT_EXTRA_ARGS="-Dcomponent.version=${PV}"
 JAVA_ANT_REWRITE_CLASSPATH="yes"
 
-java_prepare() {
+#java_prepare() {
 	# Setting java.io.tmpdir doesn't have effect unless we do this because the vm is forked
-	java-ant_xml-rewrite -f build.xml --change -e junit -a clonevm -v "true"
-}
+#	java-ant_xml-rewrite -f build.xml --change -e junit -a clonevm -v "true"
+#}
 
 src_test() {
 	if [[ ${EUID} -ne 0 ]] ; then

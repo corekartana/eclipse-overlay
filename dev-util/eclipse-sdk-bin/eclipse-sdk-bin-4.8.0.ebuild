@@ -5,12 +5,12 @@ EAPI=6
 
 inherit eutils versionator java-utils-2
 
-SR="$(get_version_component_range 3-)"
+SR="R"
 RNAME="photon"
 
 #SRC_BASE="http://mirror.switch.ch/eclipse/technology/epp/downloads/release/photon/R/eclipse-java-photon-R-linux-gtk.tar.gz"
-#SRC_BASE="http://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/${RNAME}/R/eclipse-java-${RNAME}-${SR}-linux-gtk"
-SRC_BASE="http://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/${RNAME}/R/eclipse-java-${RNAME}-R-linux-gtk"
+SRC_BASE="http://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/${RNAME}/${SR}/eclipse-java-${RNAME}-${SR}-linux-gtk"
+#SRC_BASE="http://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/${RNAME}/R/eclipse-java-${RNAME}-R-linux-gtk"
 
 DESCRIPTION="Eclipse SDK"
 HOMEPAGE="http://www.eclipse.org"
@@ -32,7 +32,7 @@ CDEPEND="
 	>=dev-java/xml-commons-resolver-1.2:0
 	"
 DEPEND="${CDEPEND}"
-RDEPEND=">=virtual/jdk-1.8
+RDEPEND=">=virtual/jdk-1.7
 	x11-libs/gtk+:3
 	lombok? ( dev-java/lombok-bin )
 	${CDEPEND}"
@@ -74,11 +74,11 @@ _unbundle_known() {
 	local mode="${1}"
 
 	# https://wiki.gentoo.org/wiki/Eclipse/Building_From_Source
-#	_unbundle_single "${mode}" plugins/com.ibm.icu_58.2.0.v20170418-1837.jar icu4j-56 icu4j.jar
-#	_unbundle_single "${mode}" plugins/javax.annotation_1.2.0.v201602091430.jar jsr250 jsr250.jar
-#	_unbundle_single "${mode}" plugins/javax.inject_1.0.0.v20091030.jar javax-inject javax-inject.jar
-#	_unbundle_single "${mode}" plugins/org.apache.commons.httpclient_3.1.0.v201012070820.jar commons-httpclient-3 commons-httpclient.jar
-#	_unbundle_single "${mode}" plugins/org.apache.xml.resolver_1.2.0.v201005080400.jar xml-commons-resolver xml-commons-resolver.jar
+	_unbundle_single "${mode}" plugins/com.ibm.icu_58.2.0.v20170418-1837.jar icu4j-56 icu4j.jar
+	_unbundle_single "${mode}" plugins/javax.annotation_1.2.0.v201602091430.jar jsr250 jsr250.jar
+	_unbundle_single "${mode}" plugins/javax.inject_1.0.0.v20091030.jar javax-inject javax-inject.jar
+	_unbundle_single "${mode}" plugins/org.apache.commons.httpclient_3.1.0.v201012070820.jar commons-httpclient-3 commons-httpclient.jar
+	_unbundle_single "${mode}" plugins/org.apache.xml.resolver_1.2.0.v201005080400.jar xml-commons-resolver xml-commons-resolver.jar
 }
 
 src_prepare() {
