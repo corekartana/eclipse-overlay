@@ -8,9 +8,7 @@ inherit eutils versionator java-utils-2
 SR="R"
 RNAME="photon"
 
-#SRC_BASE="http://mirror.switch.ch/eclipse/technology/epp/downloads/release/photon/R/eclipse-java-photon-R-linux-gtk.tar.gz"
 SRC_BASE="http://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/${RNAME}/${SR}/eclipse-java-${RNAME}-${SR}-linux-gtk"
-#SRC_BASE="http://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/${RNAME}/R/eclipse-java-${RNAME}-R-linux-gtk"
 
 DESCRIPTION="Eclipse SDK"
 HOMEPAGE="http://www.eclipse.org"
